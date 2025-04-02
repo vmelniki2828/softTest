@@ -9,7 +9,7 @@ import Home from './pages/Home';
 import PWA from './pages/development/pwa/PWA';
 import API from './pages/development/api/API';
 import BigData from './pages/development/big-data/BigData';
-// import Automation from './pages/development/automation/Automation';
+import Automation from './pages/development/automation/Automation';
 // import Accounting from './pages/development/accounting/Accounting';
 // import Education from './pages/development/education/Education';
 // import DocumentFlow from './pages/development/document-flow/DocumentFlow';
@@ -32,11 +32,12 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          
+
           {/* Development routes */}
           <Route path="/services/pwa" element={<PWA />} />
           <Route path="/services/api" element={<API />} />
           <Route path="/services/big-data" element={<BigData />} />
+          <Route path="/services/automation" element={<Automation />} />
           {/* <Route path="/services/automation" element={<Automation />} />
           <Route path="/services/accounting" element={<Accounting />} />
           <Route path="/services/education" element={<Education />} />
@@ -45,10 +46,10 @@ function App() {
           <Route path="/services/corporate" element={<Corporate />} />
           <Route path="/services/ecommerce" element={<Ecommerce />} />
           <Route path="/services/landing" element={<Landing />} /> */}
-          
+
           <Route path="/services/ai" element={<AI />} />
           <Route path="/services/mobile" element={<Mobile />} />
-          
+
           {/* Other service routes */}
           <Route path="/services/design" element={<Design />} />
           <Route path="/services/promotion" element={<Promotion />} />
@@ -60,4 +61,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;
