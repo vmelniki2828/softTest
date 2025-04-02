@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaPalette, FaPaintBrush, FaDesktop, FaMobile, FaCheck, FaTools, FaRocket, FaQuestion } from 'react-icons/fa';
+import { FaPalette, FaPaintBrush, FaDesktop, FaMobile, FaCheck, FaTools, FaRocket } from 'react-icons/fa';
 import './Design.css';
 
 const Design = () => {

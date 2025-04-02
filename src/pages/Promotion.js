@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaChartLine, FaSearch, FaAd, FaGlobe, FaCheck, FaTools, FaRocket, FaQuestion } from 'react-icons/fa';
+import { FaChartLine, FaSearch, FaAd, FaGlobe, FaCheck, FaTools, FaRocket } from 'react-icons/fa';
 import './Promotion.css';
 
 const Promotion = () => {

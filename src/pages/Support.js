@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaHeadset, FaTools, FaChartLine, FaDatabase, FaCog, FaUserGraduate, FaTicketAlt, FaCheckCircle, FaSearch, FaWrench, FaClipboardCheck, FaFileAlt } from 'react-icons/fa';
+import { FaHeadset, FaTools, FaChartLine, FaDatabase, FaCog, FaUserGraduate, FaTicketAlt, FaCheckCircle, FaSearch, FaWrench, FaFileAlt } from 'react-icons/fa';
 import './Support.css';
 
 const Support = () => {
