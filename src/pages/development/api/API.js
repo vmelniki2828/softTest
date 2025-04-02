@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaCode, FaServer, FaShieldAlt, FaDatabase, FaCogs, FaRocket, FaCheck, FaClock, FaTools, FaChartLine } from 'react-icons/fa';
+import { FaCode, FaServer, FaShieldAlt, FaDatabase, FaCogs, FaRocket, FaCheck, FaTools, FaChartLine } from 'react-icons/fa';
 import './API.css';
 
 const API = () => {

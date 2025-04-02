@@ -115,6 +115,12 @@ const Navbar = () => {
             Сопровождение
           </Link>
         </div>
+
+        <div className="navbar-contact">
+          <a href="tel:+380501234567" className="navbar-phone">
+            +38 (050) 123-45-67
+          </a>
+        </div>
       </div>
     </nav>
   );

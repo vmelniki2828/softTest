@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaMobile, FaGlobe, FaSync, FaShieldAlt, FaDownload, FaBell, FaWifi, FaCode, FaRocket, FaCheck } from 'react-icons/fa';
+import { FaMobile,  FaSync, FaShieldAlt, FaDownload, FaBell, FaWifi, FaCode, FaRocket } from 'react-icons/fa';
 import './PWA.css';
 
 const PWA = () => {

@@ -18,7 +18,7 @@ import BigData from './pages/development/big-data/BigData';
 // import Ecommerce from './pages/development/ecommerce/Ecommerce';
 // import Landing from './pages/development/landing/Landing';
 import Mobile from './pages/development/mobile/Mobile';
-// import AI from './pages/development/ai/AI';
+import AI from './pages/development/ai/AI';
 
 // Other service pages
 import Design from './pages/Design';
@@ -44,9 +44,9 @@ function App() {
           <Route path="/services/erp-crm" element={<ERPCRM />} />
           <Route path="/services/corporate" element={<Corporate />} />
           <Route path="/services/ecommerce" element={<Ecommerce />} />
-          <Route path="/services/landing" element={<Landing />} />
+          <Route path="/services/landing" element={<Landing />} /> */}
           
-          <Route path="/services/ai" element={<AI />} /> */}
+          <Route path="/services/ai" element={<AI />} />
           <Route path="/services/mobile" element={<Mobile />} />
           
           {/* Other service routes */}
