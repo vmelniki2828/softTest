@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { FaCode, FaPalette, FaChartLine, FaHeadset } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDevelopmentOpen, setIsDevelopmentOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -23,24 +23,19 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setIsDevelopmentOpen(false);
   }, [location]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const toggleDevelopmentMenu = () => {
-    setIsDevelopmentOpen(!isDevelopmentOpen);
-  };
-
   const developmentServices = [
-    { name: "PWA", path: "/services/pwa" },
-    { name: "API разработка", path: "/services/api" },
-    { name: "Big Data и аналитика", path: "/services/big-data" },
-    { name: "Автоматизация и оптимизация", path: "/services/automation" },
-    { name: "Мобильные приложения", path: "/services/mobile" },
-    { name: "ИИ", path: "/services/ai" }
+    { name: "PWA", path: "/services/pwa", icon: <FaCode /> },
+    { name: "API разработка", path: "/services/api", icon: <FaCode /> },
+    { name: "Big Data и аналитика", path: "/services/big-data", icon: <FaCode /> },
+    { name: "Автоматизация и оптимизация", path: "/services/automation", icon: <FaCode /> },
+    { name: "Мобильные приложения", path: "/services/mobile", icon: <FaCode /> },
+    { name: "ИИ", path: "/services/ai", icon: <FaCode /> }
   ];
 
   const isActive = (path) => {
@@ -62,11 +57,11 @@ const Navbar = () => {
           <div className="navbar-item dropdown">
             <button 
               className="navbar-link dropdown-toggle"
-              onClick={toggleDevelopmentMenu}
             >
+              <FaCode className="nav-icon" />
               Разработка
             </button>
-            <div className={`dropdown-menu ${isDevelopmentOpen ? 'show' : ''}`}>
+            <div className="dropdown-menu">
               {developmentServices.map((service, index) => (
                 <Link 
                   key={index} 
@@ -74,6 +69,7 @@ const Navbar = () => {
                   className="dropdown-item"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
+                  <span className="dropdown-icon">{service.icon}</span>
                   {service.name}
                 </Link>
               ))}
@@ -84,6 +80,7 @@ const Navbar = () => {
             className={`navbar-link ${isActive('/services/design') ? 'active' : ''}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
+            <FaPalette className="nav-icon" />
             Дизайн
           </Link>
           <Link 
@@ -91,6 +88,7 @@ const Navbar = () => {
             className={`navbar-link ${isActive('/services/promotion') ? 'active' : ''}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
+            <FaChartLine className="nav-icon" />
             Продвижение
           </Link>
           <Link 
@@ -98,14 +96,9 @@ const Navbar = () => {
             className={`navbar-link ${isActive('/services/support') ? 'active' : ''}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
+            <FaHeadset className="nav-icon" />
             Сопровождение
           </Link>
-        </div>
-
-        <div className="navbar-contact">
-          <a href="tel:+380501234567" className="navbar-phone">
-            +38 (050) 123-45-67
-          </a>
         </div>
       </div>
     </nav>

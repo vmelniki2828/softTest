@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { FaCode, FaServer, FaShieldAlt, FaRocket, FaDatabase, FaChartLine, FaCogs } from 'react-icons/fa';
-import '../styles/Development.css';
+import { FaServer, FaShieldAlt, FaRocket, FaCode, FaDatabase, FaChartLine, FaUsers, FaCogs } from 'react-icons/fa';
+import './Development.css';
 
 const API = () => {
   const pageRef = useRef(null);

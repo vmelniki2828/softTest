@@ -1,263 +1,183 @@
-import React, { useState, useEffect } from 'react';
-import { FaMobile, FaCode, FaRocket, FaCheck, FaTools, FaCogs, FaChartLine, FaCloud, FaShieldAlt, FaSync } from 'react-icons/fa';
-import './Mobile.css';
+import React, { useEffect, useRef } from 'react';
+import { FaMobileAlt, FaAppStore, FaAndroid, FaCode, FaServer, FaChartLine, FaUsers } from 'react-icons/fa';
+import '../styles/Development.css';
 
 const Mobile = () => {
-  const [activeTab, setActiveTab] = useState('features');
-  const [isVisible, setIsVisible] = useState(false);
+  const pageRef = useRef(null);
 
   useEffect(() => {
-    setIsVisible(true);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (pageRef.current) {
+      observer.observe(pageRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   const features = [
     {
-      icon: <FaMobile />,
-      title: 'Нативные приложения',
-      description: 'Разработка высокопроизводительных нативных приложений для iOS и Android'
+      icon: <FaMobileAlt />,
+      title: "Нативные приложения",
+      description: "Разработка приложений для iOS и Android с использованием нативных технологий"
+    },
+    {
+      icon: <FaAppStore />,
+      title: "Кроссплатформенность",
+      description: "Создание приложений, работающих на всех мобильных платформах"
+    },
+    {
+      icon: <FaAndroid />,
+      title: "UI/UX дизайн",
+      description: "Создание интуитивно понятных и привлекательных интерфейсов"
     },
     {
       icon: <FaCode />,
-      title: 'Кросс-платформенные решения',
-      description: 'Создание универсальных приложений с использованием React Native и Flutter'
-    },
-    {
-      icon: <FaCloud />,
-      title: 'Облачная интеграция',
-      description: 'Подключение к облачным сервисам и синхронизация данных'
-    },
-    {
-      icon: <FaShieldAlt />,
-      title: 'Безопасность',
-      description: 'Защита данных и безопасная аутентификация пользователей'
-    },
-    {
-      icon: <FaChartLine />,
-      title: 'Аналитика',
-      description: 'Встроенная аналитика и отслеживание пользовательского поведения'
-    },
-    {
-      icon: <FaSync />,
-      title: 'Обновления',
-      description: 'Автоматические обновления и поддержка приложений'
+      title: "Оптимизация",
+      description: "Обеспечение высокой производительности и эффективного использования ресурсов"
     }
   ];
 
   const process = [
     {
-      number: '01',
-      title: 'Анализ требований',
-      description: 'Изучение потребностей и определение функционала приложения',
-      icon: <FaCheck />
+      number: "01",
+      icon: <FaCode />,
+      title: "Проектирование",
+      description: "Разработка архитектуры и дизайна приложения"
     },
     {
-      number: '02',
-      title: 'Проектирование',
-      description: 'Создание UI/UX дизайна и архитектуры приложения',
-      icon: <FaTools />
+      number: "02",
+      icon: <FaServer />,
+      title: "Разработка",
+      description: "Создание функциональности и интеграция с сервером"
     },
     {
-      number: '03',
-      title: 'Разработка',
-      description: 'Программирование и интеграция всех компонентов',
-      icon: <FaCogs />
+      number: "03",
+      icon: <FaChartLine />,
+      title: "Тестирование",
+      description: "Проверка работы на различных устройствах и платформах"
     },
     {
-      number: '04',
-      title: 'Тестирование',
-      description: 'Проверка функционала и исправление ошибок',
-      icon: <FaCheck />
-    },
-    {
-      number: '05',
-      title: 'Запуск',
-      description: 'Публикация в App Store и Google Play',
-      icon: <FaRocket />
+      number: "04",
+      icon: <FaUsers />,
+      title: "Запуск",
+      description: "Публикация в магазинах приложений и мониторинг"
     }
   ];
 
   const technologies = [
     {
-      icon: <FaCode />,
-      title: 'React Native',
-      description: 'Кросс-платформенная разработка для iOS и Android'
+      icon: <FaMobileAlt />,
+      title: "React Native",
+      description: "Фреймворк для создания кроссплатформенных приложений"
     },
     {
-      icon: <FaCode />,
-      title: 'Flutter',
-      description: 'Создание нативных приложений с единой кодовой базой'
+      icon: <FaAppStore />,
+      title: "iOS",
+      description: "Разработка нативных приложений для Apple"
     },
     {
-      icon: <FaMobile />,
-      title: 'Swift',
-      description: 'Разработка нативных iOS приложений'
-    },
-    {
-      icon: <FaMobile />,
-      title: 'Kotlin',
-      description: 'Создание нативных Android приложений'
+      icon: <FaAndroid />,
+      title: "Android",
+      description: "Разработка нативных приложений для Google"
     }
   ];
 
-  const faqs = [
+  const faq = [
     {
-      question: 'Какие платформы поддерживаются?',
-      answer: 'Мы разрабатываем приложения для iOS и Android, а также создаем кросс-платформенные решения.'
+      question: "Что такое мобильная разработка?",
+      answer: "Мобильная разработка - это процесс создания программного обеспечения для мобильных устройств, включающий разработку нативных и кроссплатформенных приложений."
     },
     {
-      question: 'Сколько времени занимает разработка?',
-      answer: 'Сроки зависят от сложности проекта. Простое приложение может быть готово за 2-3 месяца, а комплексное решение - за 6-12 месяцев.'
+      question: "Какие преимущества у мобильных приложений?",
+      answer: "Мобильные приложения обеспечивают удобный доступ к сервисам, работают офлайн, имеют доступ к функциям устройства и могут отправлять уведомления."
     },
     {
-      question: 'Как происходит поддержка приложения?',
-      answer: 'Мы предоставляем полную техническую поддержку, обновления и исправления ошибок после запуска.'
+      question: "Как выбрать тип разработки?",
+      answer: "Выбор между нативной и кроссплатформенной разработкой зависит от требований проекта, бюджета, времени разработки и необходимой функциональности."
     }
   ];
 
   return (
-    <div className={`mobile-page ${isVisible ? 'visible' : ''}`}>
-      <section className="mobile-hero">
-        <div className="mobile-hero-content">
-          <div className="mobile-hero-icon">
-            <FaMobile />
-          </div>
-          <h1>Мобильная Разработка</h1>
-          <p className="mobile-hero-description">
-            Создаем современные мобильные приложения для iOS и Android. От идеи до публикации в магазинах приложений.
+    <div className="development-page" ref={pageRef}>
+      {/* Hero Section */}
+      <section className="development-hero">
+        <div className="development-hero-content">
+          <FaMobileAlt className="development-hero-icon" />
+          <h1>Мобильная разработка</h1>
+          <p className="development-hero-description">
+            Создаем современные мобильные приложения для iOS и Android, 
+            обеспечивая отличный пользовательский опыт
           </p>
-          <div className="mobile-hero-buttons">
-            <a href="#contact" className="mobile-hero-button primary">Обсудить проект</a>
-            <a href="#features" className="mobile-hero-button secondary">Узнать больше</a>
+          <div className="development-hero-buttons">
+            <a href="#contact" className="development-hero-button primary">
+              Начать проект
+            </a>
+            <a href="#features" className="development-hero-button secondary">
+              Узнать больше
+            </a>
           </div>
         </div>
-        <div className="mobile-hero-visual">
-          <div className="mobile-device">
-            <div className="mobile-screen">
-              <div className="mobile-app">
-                <div className="mobile-app-header"></div>
-                <div className="mobile-app-content">
-                  <div className="mobile-app-icon"></div>
-                  <div className="mobile-app-text"></div>
-                </div>
-              </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="development-features">
+        {features.map((feature, index) => (
+          <div key={index} className="development-feature-card" style={{ animationDelay: `${index * 0.2}s` }}>
+            <div className="development-feature-icon">{feature.icon}</div>
+            <h3 className="development-feature-title">{feature.title}</h3>
+            <p className="development-feature-description">{feature.description}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Process Section */}
+      <section className="development-process">
+        <h2>Процесс разработки</h2>
+        <div className="development-process-steps">
+          {process.map((step, index) => (
+            <div key={index} className="development-process-step" style={{ animationDelay: `${index * 0.2}s` }}>
+              <div className="development-process-step-number">{step.number}</div>
+              <div className="development-process-step-icon">{step.icon}</div>
+              <h3 className="development-process-step-title">{step.title}</h3>
+              <p className="development-process-step-description">{step.description}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Technologies Section */}
+      <section className="development-technologies">
+        <h2>Технологии</h2>
+        <div className="development-technologies-grid">
+          {technologies.map((tech, index) => (
+            <div key={index} className="development-technology-card" style={{ animationDelay: `${index * 0.2}s` }}>
+              <div className="development-technology-icon">{tech.icon}</div>
+              <h3 className="development-technology-title">{tech.title}</h3>
+              <p className="development-technology-description">{tech.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="development-faq">
+        <h2>Частые вопросы</h2>
+        {faq.map((item, index) => (
+          <div key={index} className="development-faq-item" style={{ animationDelay: `${index * 0.2}s` }}>
+            <h3 className="development-faq-question">{item.question}</h3>
+            <p className="development-faq-answer">{item.answer}</p>
           </div>
-        </div>
-      </section>
-
-      <div className="mobile-divider">
-        <div className="mobile-divider-line"></div>
-        <div className="mobile-divider-icon">
-          <FaCode />
-        </div>
-        <div className="mobile-divider-line"></div>
-      </div>
-
-      <section className="mobile-tabs">
-        <div className="mobile-tab-buttons">
-          <button
-            className={`mobile-tab-button ${activeTab === 'features' ? 'active' : ''}`}
-            onClick={() => setActiveTab('features')}
-          >
-            Возможности
-          </button>
-          <button
-            className={`mobile-tab-button ${activeTab === 'process' ? 'active' : ''}`}
-            onClick={() => setActiveTab('process')}
-          >
-            Процесс
-          </button>
-          <button
-            className={`mobile-tab-button ${activeTab === 'technologies' ? 'active' : ''}`}
-            onClick={() => setActiveTab('technologies')}
-          >
-            Технологии
-          </button>
-          <button
-            className={`mobile-tab-button ${activeTab === 'faq' ? 'active' : ''}`}
-            onClick={() => setActiveTab('faq')}
-          >
-            FAQ
-          </button>
-        </div>
-
-        <div className="mobile-tab-content">
-          {activeTab === 'features' && (
-            <>
-              <h2>Возможности Мобильной Разработки</h2>
-              <div className="mobile-features-grid">
-                {features.map((feature, index) => (
-                  <div key={index} className="mobile-feature-card">
-                    <div className="mobile-feature-icon">{feature.icon}</div>
-                    <h3>{feature.title}</h3>
-                    <p>{feature.description}</p>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-
-          {activeTab === 'process' && (
-            <>
-              <h2>Процесс Разработки</h2>
-              <div className="mobile-process-timeline">
-                {process.map((step, index) => (
-                  <div key={index} className="mobile-process-step">
-                    <div className="mobile-process-step-number">{step.number}</div>
-                    <div className="mobile-process-step-content">
-                      <h3>{step.title}</h3>
-                      <p>{step.description}</p>
-                    </div>
-                    <div className="mobile-process-step-icon">{step.icon}</div>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-
-          {activeTab === 'technologies' && (
-            <>
-              <h2>Используемые Технологии</h2>
-              <div className="mobile-technologies-grid">
-                {technologies.map((tech, index) => (
-                  <div key={index} className="mobile-technology-card">
-                    <div className="mobile-technology-icon">{tech.icon}</div>
-                    <h3>{tech.title}</h3>
-                    <p>{tech.description}</p>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-
-          {activeTab === 'faq' && (
-            <>
-              <h2>Часто Задаваемые Вопросы</h2>
-              <div className="mobile-faq-list">
-                {faqs.map((faq, index) => (
-                  <div key={index} className="mobile-faq-item">
-                    <h3>{faq.question}</h3>
-                    <p>{faq.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-      </section>
-
-      <div className="mobile-divider">
-        <div className="mobile-divider-line"></div>
-        <div className="mobile-divider-icon">
-          <FaRocket />
-        </div>
-        <div className="mobile-divider-line"></div>
-      </div>
-
-      <section className="mobile-cta">
-        <h2>Готовы создать мобильное приложение?</h2>
-        <p>Свяжитесь с нами для обсуждения вашего проекта</p>
-        <a href="#contact" className="mobile-cta-button">Обсудить проект</a>
+        ))}
       </section>
     </div>
   );

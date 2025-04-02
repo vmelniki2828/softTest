@@ -1,261 +1,183 @@
-import React, { useState, useEffect } from 'react';
-import { FaMobile,  FaSync, FaShieldAlt, FaDownload, FaBell, FaWifi, FaCode, FaRocket } from 'react-icons/fa';
-import './PWA.css';
+import React, { useEffect, useRef } from 'react';
+import { FaMobileAlt, FaSync, FaShieldAlt, FaRocket, FaCode, FaServer, FaChartLine, FaUsers } from 'react-icons/fa';
+import '../styles/Development.css';
 
 const PWA = () => {
-  const [activeTab, setActiveTab] = useState('features');
-  const [isVisible, setIsVisible] = useState(false);
+  const pageRef = useRef(null);
 
   useEffect(() => {
-    setIsVisible(true);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (pageRef.current) {
+      observer.observe(pageRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   const features = [
     {
-      icon: <FaDownload />,
-      title: 'Установка на устройство',
-      description: 'Возможность установки на главный экран устройства для быстрого доступа'
-    },
-    {
-      icon: <FaWifi />,
-      title: 'Работа офлайн',
-      description: 'Функционирование приложения без подключения к интернету'
-    },
-    {
-      icon: <FaBell />,
-      title: 'Push-уведомления',
-      description: 'Отправка уведомлений пользователям для повышения вовлеченности'
+      icon: <FaMobileAlt />,
+      title: "Адаптивный дизайн",
+      description: "Идеальное отображение на всех устройствах - от смартфонов до десктопов"
     },
     {
       icon: <FaSync />,
-      title: 'Автоматическое обновление',
-      description: 'Обновление контента в фоновом режиме без перезагрузки страницы'
+      title: "Офлайн-режим",
+      description: "Работа приложения даже без подключения к интернету"
     },
     {
       icon: <FaShieldAlt />,
-      title: 'Безопасность',
-      description: 'Защита данных через HTTPS и современные протоколы безопасности'
+      title: "Безопасность",
+      description: "Защита данных и безопасное соединение через HTTPS"
     },
     {
       icon: <FaRocket />,
-      title: 'Высокая производительность',
-      description: 'Быстрая загрузка и отзывчивый интерфейс благодаря кэшированию'
+      title: "Быстрая загрузка",
+      description: "Мгновенный запуск и отзывчивый интерфейс"
     }
   ];
 
   const process = [
     {
-      number: '01',
-      title: 'Анализ требований',
-      description: 'Изучение бизнес-процессов и определение необходимого функционала',
-      icon: <FaCode />
+      number: "01",
+      icon: <FaCode />,
+      title: "Разработка",
+      description: "Создание базовой структуры PWA с использованием современных технологий"
     },
     {
-      number: '02',
-      title: 'Проектирование',
-      description: 'Разработка архитектуры и дизайна приложения',
-      icon: <FaCode />
+      number: "02",
+      icon: <FaServer />,
+      title: "Оптимизация",
+      description: "Настройка кэширования и оптимизация производительности"
     },
     {
-      number: '03',
-      title: 'Разработка',
-      description: 'Создание PWA с использованием современных технологий',
-      icon: <FaCode />
+      number: "03",
+      icon: <FaChartLine />,
+      title: "Тестирование",
+      description: "Проверка работы на различных устройствах и браузерах"
     },
     {
-      number: '04',
-      title: 'Тестирование',
-      description: 'Проверка работоспособности на различных устройствах',
-      icon: <FaCode />
-    },
-    {
-      number: '05',
-      title: 'Запуск',
-      description: 'Развертывание и мониторинг работы приложения',
-      icon: <FaCode />
+      number: "04",
+      icon: <FaUsers />,
+      title: "Запуск",
+      description: "Развертывание и мониторинг использования приложения"
     }
   ];
 
   const technologies = [
     {
       icon: <FaCode />,
-      title: 'Service Workers',
-      description: 'Для кэширования и офлайн-функциональности'
+      title: "React",
+      description: "Современный фреймворк для создания пользовательских интерфейсов"
     },
     {
-      icon: <FaCode />,
-      title: 'Web App Manifest',
-      description: 'Для установки на устройство и настройки отображения'
+      icon: <FaServer />,
+      title: "Service Workers",
+      description: "Технология для кэширования и офлайн-функциональности"
     },
     {
-      icon: <FaCode />,
-      title: 'HTTPS',
-      description: 'Для безопасного соединения и работы Service Workers'
-    },
-    {
-      icon: <FaCode />,
-      title: 'IndexedDB',
-      description: 'Для хранения данных на стороне клиента'
+      icon: <FaShieldAlt />,
+      title: "HTTPS",
+      description: "Безопасное соединение для защиты данных"
     }
   ];
 
   const faq = [
     {
-      question: 'Чем PWA отличается от обычного сайта?',
-      answer: 'PWA сочетает в себе преимущества веб-сайта и нативного приложения. Пользователи могут установить его на устройство, использовать офлайн и получать push-уведомления.'
+      question: "Что такое PWA?",
+      answer: "Progressive Web App (PWA) - это веб-приложение, которое сочетает в себе лучшие качества веб-сайтов и нативных приложений. Оно может работать офлайн, отправлять уведомления и устанавливаться на устройство пользователя."
     },
     {
-      question: 'На каких устройствах работает PWA?',
-      answer: 'PWA работает на всех современных устройствах с поддержкой веб-технологий, включая смартфоны, планшеты и компьютеры.'
+      question: "Какие преимущества у PWA?",
+      answer: "PWA предлагают улучшенную производительность, возможность работы офлайн, автоматическое обновление, кроссплатформенность и более низкую стоимость разработки по сравнению с нативными приложениями."
     },
     {
-      question: 'Сколько времени нужно на разработку PWA?',
-      answer: 'Сроки разработки зависят от сложности проекта. Обычно это занимает от 2 до 8 недель.'
+      question: "Как установить PWA?",
+      answer: "PWA можно установить через браузер, нажав на кнопку 'Установить' в адресной строке или через меню браузера. После установки приложение будет доступно на главном экране устройства."
     }
   ];
 
   return (
-    <div className={`pwa-page ${isVisible ? 'visible' : ''}`}>
-      <section className="pwa-hero">
-        <div className="pwa-hero-content">
-          <div className="pwa-hero-icon">
-            <FaMobile />
-          </div>
+    <div className="development-page" ref={pageRef}>
+      {/* Hero Section */}
+      <section className="development-hero">
+        <div className="development-hero-content">
+          <FaMobileAlt className="development-hero-icon" />
           <h1>Progressive Web Apps</h1>
-          <p className="pwa-hero-description">
-            Современные веб-приложения, которые работают как нативные. Установите их на устройство, используйте офлайн и получайте уведомления.
+          <p className="development-hero-description">
+            Создаем современные веб-приложения, которые работают как нативные, 
+            обеспечивая отличный пользовательский опыт на всех устройствах
           </p>
-          <div className="pwa-hero-buttons">
-            <a href="#contact" className="pwa-hero-button primary">Начать проект</a>
-            <a href="#features" className="pwa-hero-button secondary">Узнать больше</a>
+          <div className="development-hero-buttons">
+            <a href="#contact" className="development-hero-button primary">
+              Начать проект
+            </a>
+            <a href="#features" className="development-hero-button secondary">
+              Узнать больше
+            </a>
           </div>
         </div>
-        <div className="pwa-hero-visual">
-          <div className="pwa-device">
-            <div className="pwa-screen">
-              <div className="pwa-app-icon"></div>
-              <div className="pwa-app-content">
-                <div className="pwa-app-header"></div>
-                <div className="pwa-app-body">
-                  <div className="pwa-app-item"></div>
-                  <div className="pwa-app-item"></div>
-                  <div className="pwa-app-item"></div>
-                </div>
-              </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="development-features">
+        {features.map((feature, index) => (
+          <div key={index} className="development-feature-card" style={{ animationDelay: `${index * 0.2}s` }}>
+            <div className="development-feature-icon">{feature.icon}</div>
+            <h3 className="development-feature-title">{feature.title}</h3>
+            <p className="development-feature-description">{feature.description}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Process Section */}
+      <section className="development-process">
+        <h2>Процесс разработки</h2>
+        <div className="development-process-steps">
+          {process.map((step, index) => (
+            <div key={index} className="development-process-step" style={{ animationDelay: `${index * 0.2}s` }}>
+              <div className="development-process-step-number">{step.number}</div>
+              <div className="development-process-step-icon">{step.icon}</div>
+              <h3 className="development-process-step-title">{step.title}</h3>
+              <p className="development-process-step-description">{step.description}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Technologies Section */}
+      <section className="development-technologies">
+        <h2>Технологии</h2>
+        <div className="development-technologies-grid">
+          {technologies.map((tech, index) => (
+            <div key={index} className="development-technology-card" style={{ animationDelay: `${index * 0.2}s` }}>
+              <div className="development-technology-icon">{tech.icon}</div>
+              <h3 className="development-technology-title">{tech.title}</h3>
+              <p className="development-technology-description">{tech.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="development-faq">
+        <h2>Частые вопросы</h2>
+        {faq.map((item, index) => (
+          <div key={index} className="development-faq-item" style={{ animationDelay: `${index * 0.2}s` }}>
+            <h3 className="development-faq-question">{item.question}</h3>
+            <p className="development-faq-answer">{item.answer}</p>
           </div>
-        </div>
-      </section>
-
-      <div className="pwa-divider">
-        <div className="pwa-divider-line"></div>
-        <div className="pwa-divider-icon"><FaCode /></div>
-        <div className="pwa-divider-line"></div>
-      </div>
-
-      <section className="pwa-tabs" id="features">
-        <div className="pwa-tab-buttons">
-          <button 
-            className={`pwa-tab-button ${activeTab === 'features' ? 'active' : ''}`}
-            onClick={() => setActiveTab('features')}
-          >
-            Возможности
-          </button>
-          <button 
-            className={`pwa-tab-button ${activeTab === 'process' ? 'active' : ''}`}
-            onClick={() => setActiveTab('process')}
-          >
-            Процесс
-          </button>
-          <button 
-            className={`pwa-tab-button ${activeTab === 'technologies' ? 'active' : ''}`}
-            onClick={() => setActiveTab('technologies')}
-          >
-            Технологии
-          </button>
-          <button 
-            className={`pwa-tab-button ${activeTab === 'faq' ? 'active' : ''}`}
-            onClick={() => setActiveTab('faq')}
-          >
-            FAQ
-          </button>
-        </div>
-
-        <div className="pwa-tab-content">
-          {activeTab === 'features' && (
-            <>
-              <h2>Возможности PWA</h2>
-              <div className="pwa-features-grid">
-                {features.map((feature, index) => (
-                  <div key={index} className="pwa-feature-card">
-                    <div className="pwa-feature-icon">{feature.icon}</div>
-                    <h3>{feature.title}</h3>
-                    <p>{feature.description}</p>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-
-          {activeTab === 'process' && (
-            <>
-              <h2>Процесс разработки</h2>
-              <div className="pwa-process-timeline">
-                {process.map((step, index) => (
-                  <div key={index} className="pwa-process-step">
-                    <div className="pwa-process-step-number">{step.number}</div>
-                    <div className="pwa-process-step-content">
-                      <h3>{step.title}</h3>
-                      <p>{step.description}</p>
-                      <div className="pwa-process-step-icon">{step.icon}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-
-          {activeTab === 'technologies' && (
-            <>
-              <h2>Используемые технологии</h2>
-              <div className="pwa-technologies-grid">
-                {technologies.map((tech, index) => (
-                  <div key={index} className="pwa-technology-card">
-                    <div className="pwa-technology-icon">{tech.icon}</div>
-                    <h3>{tech.title}</h3>
-                    <p>{tech.description}</p>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-
-          {activeTab === 'faq' && (
-            <>
-              <h2>Часто задаваемые вопросы</h2>
-              <div className="pwa-faq-list">
-                {faq.map((item, index) => (
-                  <div key={index} className="pwa-faq-item">
-                    <h3>{item.question}</h3>
-                    <p>{item.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-      </section>
-
-      <div className="pwa-divider">
-        <div className="pwa-divider-line"></div>
-        <div className="pwa-divider-icon"><FaRocket /></div>
-        <div className="pwa-divider-line"></div>
-      </div>
-
-      <section className="pwa-cta" id="contact">
-        <h2>Готовы создать свое PWA?</h2>
-        <p>Свяжитесь с нами для обсуждения вашего проекта</p>
-        <a href="#contact" className="pwa-cta-button">Обсудить проект</a>
+        ))}
       </section>
     </div>
   );

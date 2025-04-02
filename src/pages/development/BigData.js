@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { FaCode, FaServer, FaShieldAlt, FaRocket, FaDatabase, FaChartLine, FaCogs } from 'react-icons/fa';
-import '../styles/Development.css';
+import { FaDatabase, FaChartBar, FaBrain, FaRocket, FaCode, FaServer, FaChartLine, FaUsers } from 'react-icons/fa';
+import './Development.css';
 
-const API = () => {
+const BigData = () => {
   const pageRef = useRef(null);
 
   useEffect(() => {
@@ -26,24 +26,24 @@ const API = () => {
 
   const features = [
     {
-      icon: <FaServer />,
-      title: "Масштабируемость",
-      description: "API, способное обрабатывать растущие нагрузки и увеличивающееся количество запросов"
+      icon: <FaDatabase />,
+      title: "Обработка данных",
+      description: "Эффективная обработка и анализ больших объемов данных в реальном времени"
     },
     {
-      icon: <FaShieldAlt />,
-      title: "Безопасность",
-      description: "Защита данных и аутентификация с использованием современных протоколов"
+      icon: <FaChartBar />,
+      title: "Визуализация",
+      description: "Интерактивные графики и дашборды для представления аналитических данных"
+    },
+    {
+      icon: <FaBrain />,
+      title: "Машинное обучение",
+      description: "Применение алгоритмов машинного обучения для прогнозирования и анализа"
     },
     {
       icon: <FaRocket />,
-      title: "Производительность",
-      description: "Оптимизированная обработка запросов и быстрый отклик"
-    },
-    {
-      icon: <FaCode />,
-      title: "Документация",
-      description: "Подробная документация API с примерами использования"
+      title: "Масштабируемость",
+      description: "Системы, способные обрабатывать растущие объемы данных"
     }
   ];
 
@@ -51,59 +51,59 @@ const API = () => {
     {
       number: "01",
       icon: <FaDatabase />,
-      title: "Проектирование",
-      description: "Разработка архитектуры API и определение эндпоинтов"
+      title: "Сбор данных",
+      description: "Интеграция различных источников данных и их подготовка к анализу"
     },
     {
       number: "02",
-      icon: <FaCode />,
-      title: "Разработка",
-      description: "Реализация API с использованием современных технологий"
+      icon: <FaServer />,
+      title: "Обработка",
+      description: "Применение алгоритмов обработки и анализа данных"
     },
     {
       number: "03",
       icon: <FaChartLine />,
-      title: "Тестирование",
-      description: "Проверка производительности и безопасности API"
+      title: "Визуализация",
+      description: "Создание интерактивных дашбордов и отчетов"
     },
     {
       number: "04",
-      icon: <FaCogs />,
-      title: "Оптимизация",
-      description: "Улучшение производительности и масштабируемости"
+      icon: <FaUsers />,
+      title: "Внедрение",
+      description: "Интеграция решений в бизнес-процессы"
     }
   ];
 
   const technologies = [
     {
-      icon: <FaServer />,
-      title: "Node.js",
-      description: "Современный серверный JavaScript для создания API"
-    },
-    {
       icon: <FaDatabase />,
-      title: "MongoDB",
-      description: "Гибкая NoSQL база данных для хранения данных"
+      title: "Hadoop",
+      description: "Распределенная обработка больших данных"
     },
     {
-      icon: <FaShieldAlt />,
-      title: "JWT",
-      description: "Безопасная аутентификация и авторизация"
+      icon: <FaChartBar />,
+      title: "Spark",
+      description: "Быстрая обработка данных в реальном времени"
+    },
+    {
+      icon: <FaBrain />,
+      title: "TensorFlow",
+      description: "Машинное обучение и нейронные сети"
     }
   ];
 
   const faq = [
     {
-      question: "Что такое REST API?",
-      answer: "REST API - это архитектурный стиль для создания веб-сервисов, который использует HTTP методы для взаимодействия с ресурсами. Он обеспечивает простой и эффективный способ обмена данными между клиентом и сервером."
+      question: "Что такое Big Data?",
+      answer: "Big Data - это совокупность технологий и методов обработки больших объемов данных, которые характеризуются большим объемом, высокой скоростью поступления и разнообразием форматов."
     },
     {
-      question: "Какие преимущества у REST API?",
-      answer: "REST API предлагает масштабируемость, простоту использования, независимость от платформы и широкую поддержку различных клиентов. Оно также обеспечивает хорошую производительность и кэширование."
+      question: "Какие преимущества у Big Data?",
+      answer: "Big Data позволяет принимать более точные бизнес-решения, оптимизировать процессы, предсказывать тренды и находить новые возможности для развития бизнеса."
     },
     {
-      question: "Как обеспечить безопасность API?",
-      answer: "Безопасность API обеспечивается через аутентификацию (например, JWT), авторизацию, HTTPS, валидацию входных данных, ограничение частоты запросов и регулярное обновление зависимостей."
+      question: "Как внедрить Big Data в бизнес?",
+      answer: "Внедрение Big Data начинается с определения целей, выбора подходящих технологий, сбора и подготовки данных, разработки аналитических моделей и создания визуализаций для принятия решений."
     }
   ];
 
@@ -112,11 +112,11 @@ const API = () => {
       {/* Hero Section */}
       <section className="development-hero">
         <div className="development-hero-content">
-          <FaServer className="development-hero-icon" />
-          <h1>API Разработка</h1>
+          <FaDatabase className="development-hero-icon" />
+          <h1>Big Data и Аналитика</h1>
           <p className="development-hero-description">
-            Создаем надежные и масштабируемые API для ваших приложений, 
-            обеспечивая безопасность и высокую производительность
+            Создаем системы для обработки и анализа больших данных, 
+            помогая бизнесу принимать обоснованные решения
           </p>
           <div className="development-hero-buttons">
             <a href="#contact" className="development-hero-button primary">
@@ -183,4 +183,4 @@ const API = () => {
   );
 };
 
-export default API; 
+export default BigData; 
