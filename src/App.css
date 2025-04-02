@@ -1,0 +1,122 @@
+:root {
+  --primary-color: #61afef;
+  --secondary-color: #56b6c2;
+  --text-color: #abb2bf;
+  --background-color: #282c34;
+  --accent-color: #c678dd;
+  --gray-light: #2c313c;
+  --gray-dark: #5c6370;
+  --card-bg: #21252b;
+  --border-color: #3e4451;
+  --code-bg: #1e2127;
+  --success-color: #98c379;
+  --warning-color: #e5c07b;
+  --error-color: #e06c75;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  color: var(--text-color);
+  line-height: 1.5;
+  background-color: var(--background-color);
+}
+
+.app {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 4rem;
+  color: var(--primary-color);
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+}
+
+h3 {
+  font-size: 2rem;
+  color: var(--accent-color);
+}
+
+p {
+  margin-bottom: 1.5rem;
+  color: var(--gray-dark);
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  font-size: 0.9em;
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  .section {
+    padding: 4rem 0;
+  }
+} 

@@ -1,0 +1,142 @@
+.cases {
+  padding: 6rem 0;
+  background: var(--background-color);
+  position: relative;
+}
+
+.cases::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(97, 175, 239, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(198, 120, 221, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cases-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cases-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.cases-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.cases-header p {
+  color: var(--gray-dark);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.case-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.case-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+}
+
+.case-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.case-content {
+  padding: 2rem;
+  position: relative;
+}
+
+.case-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.case-card:hover .case-content::before {
+  opacity: 0.05;
+}
+
+.case-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.case-content p {
+  color: var(--gray-dark);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.case-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.case-tag {
+  background: var(--code-bg);
+  color: var(--primary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@media (max-width: 768px) {
+  .cases {
+    padding: 4rem 0;
+  }
+
+  .cases-header h2 {
+    font-size: 2rem;
+  }
+
+  .cases-grid {
+    grid-template-columns: 1fr;
+  }
+} 
