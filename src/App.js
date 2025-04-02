@@ -10,13 +10,16 @@ import PWA from './pages/development/pwa/PWA';
 import API from './pages/development/api/API';
 import BigData from './pages/development/big-data/BigData';
 import Automation from './pages/development/automation/Automation';
+import Accounting from './pages/development/accounting/Accounting';
+import Education from './pages/development/education/Education';
+import OnlineEducation from './pages/development/online-education/OnlineEducation';
+import DocumentFlow from './pages/development/document-flow/DocumentFlow';
+import ERPCRM from './pages/development/erp-crm/ERPCRM';
+import Corporate from './pages/development/corporate/Corporate';
+import Ecommerce from './pages/development/ecommerce/Ecommerce';
+import Landing from './pages/development/landing/Landing';
 import Mobile from './pages/development/mobile/Mobile';
 import AI from './pages/development/ai/AI';
-
-// Other service pages
-import Design from './pages/Design';
-import Promotion from './pages/Promotion';
-import Support from './pages/Support';
 
 function App() {
   return (
@@ -30,14 +33,17 @@ function App() {
           <Route path="/services/pwa" element={<PWA />} />
           <Route path="/services/api" element={<API />} />
           <Route path="/services/big-data" element={<BigData />} />
+          <Route path="/services/education" element={<Education />} />
+          <Route path="/services/online-education" element={<OnlineEducation />} />
+          <Route path="/services/accounting" element={<Accounting />} />
           <Route path="/services/automation" element={<Automation />} />
-          <Route path="/services/mobile" element={<Mobile />} />
+          <Route path="/services/document-flow" element={<DocumentFlow />} />
+          <Route path="/services/erp-crm" element={<ERPCRM />} />
+          <Route path="/services/corporate" element={<Corporate />} />
+          <Route path="/services/ecommerce" element={<Ecommerce />} />
+          <Route path="/services/landing" element={<Landing />} />
           <Route path="/services/ai" element={<AI />} />
-
-          {/* Other service routes */}
-          <Route path="/services/design" element={<Design />} />
-          <Route path="/services/promotion" element={<Promotion />} />
-          <Route path="/services/support" element={<Support />} />
+          <Route path="/services/mobile" element={<Mobile />} />
         </Routes>
         <Footer />
       </div>

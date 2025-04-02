@@ -1,183 +1,269 @@
-import React, { useEffect, useRef } from 'react';
-import { FaBrain, FaRobot, FaChartLine, FaRocket, FaCode, FaServer, FaChartBar, FaUsers } from 'react-icons/fa';
-import '../styles/Development.css';
+import React, { useState, useEffect } from 'react';
+import { FaBrain, FaCode, FaRocket, FaCheck, FaTools, FaCogs,  FaRobot, FaMicrochip, FaDatabase, FaSearch, FaChartBar, FaCog } from 'react-icons/fa';
+import './AI.css';
 
 const AI = () => {
-  const pageRef = useRef(null);
+  const [activeTab, setActiveTab] = useState('features');
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (pageRef.current) {
-      observer.observe(pageRef.current);
-    }
-
-    return () => observer.disconnect();
+    setIsVisible(true);
   }, []);
 
   const features = [
     {
       icon: <FaBrain />,
-      title: "Машинное обучение",
-      description: "Разработка и внедрение алгоритмов машинного обучения для решения бизнес-задач"
+      title: 'Машинное обучение',
+      description: 'Разработка моделей машинного обучения для анализа данных и прогнозирования'
     },
     {
       icon: <FaRobot />,
-      title: "Искусственный интеллект",
-      description: "Создание интеллектуальных систем для автоматизации и оптимизации процессов"
+      title: 'Нейронные сети',
+      description: 'Создание глубоких нейронных сетей для сложных задач распознавания'
     },
     {
-      icon: <FaChartLine />,
-      title: "Аналитика данных",
-      description: "Анализ больших данных и прогнозирование с помощью AI"
+      icon: <FaMicrochip />,
+      title: 'Компьютерное зрение',
+      description: 'Системы распознавания изображений и видео на основе ИИ'
     },
     {
-      icon: <FaRocket />,
-      title: "Инновации",
-      description: "Внедрение передовых AI-технологий для развития бизнеса"
+      icon: <FaSearch />,
+      title: 'Обработка языка',
+      description: 'NLP решения для анализа текста и голосовых команд'
+    },
+    {
+      icon: <FaChartBar />,
+      title: 'Предиктивная аналитика',
+      description: 'Прогнозирование трендов и поведенческих паттернов'
+    },
+    {
+      icon: <FaCog />,
+      title: 'Автоматизация процессов',
+      description: 'Интеллектуальная автоматизация бизнес-процессов'
     }
   ];
 
   const process = [
     {
-      number: "01",
-      icon: <FaCode />,
-      title: "Анализ",
-      description: "Изучение данных и определение возможностей для применения AI"
+      number: '01',
+      title: 'Анализ данных',
+      description: 'Изучение и подготовка данных для обучения моделей',
+      icon: <FaDatabase />
     },
     {
-      number: "02",
-      icon: <FaServer />,
-      title: "Разработка",
-      description: "Создание и обучение моделей машинного обучения"
+      number: '02',
+      title: 'Проектирование',
+      description: 'Выбор архитектуры и алгоритмов ИИ',
+      icon: <FaTools />
     },
     {
-      number: "03",
-      icon: <FaChartBar />,
-      title: "Оптимизация",
-      description: "Улучшение точности и эффективности AI-решений"
+      number: '03',
+      title: 'Разработка',
+      description: 'Создание и обучение моделей ИИ',
+      icon: <FaCogs />
     },
     {
-      number: "04",
-      icon: <FaUsers />,
-      title: "Внедрение",
-      description: "Интеграция AI в бизнес-процессы и обучение персонала"
+      number: '04',
+      title: 'Тестирование',
+      description: 'Проверка точности и оптимизация моделей',
+      icon: <FaCheck />
+    },
+    {
+      number: '05',
+      title: 'Внедрение',
+      description: 'Интеграция ИИ в существующие системы',
+      icon: <FaRocket />
     }
   ];
 
   const technologies = [
     {
       icon: <FaBrain />,
-      title: "TensorFlow",
-      description: "Фреймворк для машинного обучения и нейронных сетей"
+      title: 'TensorFlow',
+      description: 'Фреймворк для создания и обучения нейронных сетей'
     },
     {
-      icon: <FaRobot />,
-      title: "PyTorch",
-      description: "Библиотека для глубокого обучения"
+      icon: <FaBrain />,
+      title: 'PyTorch',
+      description: 'Библиотека для разработки моделей глубокого обучения'
     },
     {
-      icon: <FaChartLine />,
-      title: "Scikit-learn",
-      description: "Инструменты для машинного обучения и анализа данных"
+      icon: <FaMicrochip />,
+      title: 'OpenCV',
+      description: 'Библиотека для компьютерного зрения и обработки изображений'
+    },
+    {
+      icon: <FaSearch />,
+      title: 'NLTK',
+      description: 'Инструменты для обработки естественного языка'
     }
   ];
 
-  const faq = [
+  const faqs = [
     {
-      question: "Что такое искусственный интеллект?",
-      answer: "Искусственный интеллект - это технология, позволяющая компьютерам учиться на основе данных, принимать решения и выполнять задачи, которые традиционно требуют человеческого интеллекта."
+      question: 'Какие задачи решает ИИ?',
+      answer: 'ИИ может решать широкий спектр задач: от анализа данных и прогнозирования до распознавания образов и автоматизации процессов.'
     },
     {
-      question: "Какие преимущества у AI?",
-      answer: "AI позволяет автоматизировать сложные задачи, повысить точность прогнозов, ускорить принятие решений, оптимизировать процессы и создать новые возможности для бизнеса."
+      question: 'Сколько времени занимает разработка?',
+      answer: 'Сроки зависят от сложности проекта. Простая модель может быть готова за 1-2 месяца, а комплексное решение - за 6-12 месяцев.'
     },
     {
-      question: "Как начать использовать AI?",
-      answer: "Для начала использования AI необходимо определить конкретные задачи, собрать необходимые данные, выбрать подходящие технологии и начать с пилотного проекта."
+      question: 'Какие данные нужны для обучения?',
+      answer: 'Для обучения моделей ИИ необходимы качественные данные, релевантные решаемой задаче. Чем больше данных, тем лучше результаты.'
     }
   ];
 
   return (
-    <div className="development-page" ref={pageRef}>
-      {/* Hero Section */}
-      <section className="development-hero">
-        <div className="development-hero-content">
-          <FaBrain className="development-hero-icon" />
-          <h1>Искусственный интеллект</h1>
-          <p className="development-hero-description">
-            Создаем интеллектуальные решения на основе искусственного интеллекта и машинного обучения, 
-            помогая бизнесу развиваться и становиться эффективнее
+    <div className={`ai-page ${isVisible ? 'visible' : ''}`}>
+      <section className="ai-hero">
+        <div className="ai-hero-content">
+          <div className="ai-hero-icon">
+            <FaBrain />
+          </div>
+          <h1>Искусственный Интеллект</h1>
+          <p className="ai-hero-description">
+            Создаем интеллектуальные системы на основе машинного обучения и нейронных сетей. От анализа данных до автоматизации процессов.
           </p>
-          <div className="development-hero-buttons">
-            <a href="#contact" className="development-hero-button primary">
-              Начать проект
-            </a>
-            <a href="#features" className="development-hero-button secondary">
-              Узнать больше
-            </a>
+          <div className="ai-hero-buttons">
+            <a href="#contact" className="ai-hero-button primary">Обсудить проект</a>
+            <a href="#features" className="ai-hero-button secondary">Узнать больше</a>
           </div>
         </div>
-      </section>
-
-      {/* Features Section */}
-      <section id="features" className="development-features">
-        {features.map((feature, index) => (
-          <div key={index} className="development-feature-card" style={{ animationDelay: `${index * 0.2}s` }}>
-            <div className="development-feature-icon">{feature.icon}</div>
-            <h3 className="development-feature-title">{feature.title}</h3>
-            <p className="development-feature-description">{feature.description}</p>
-          </div>
-        ))}
-      </section>
-
-      {/* Process Section */}
-      <section className="development-process">
-        <h2>Процесс разработки</h2>
-        <div className="development-process-steps">
-          {process.map((step, index) => (
-            <div key={index} className="development-process-step" style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="development-process-step-number">{step.number}</div>
-              <div className="development-process-step-icon">{step.icon}</div>
-              <h3 className="development-process-step-title">{step.title}</h3>
-              <p className="development-process-step-description">{step.description}</p>
+        <div className="ai-hero-visual">
+          <div className="ai-brain">
+            <div className="ai-brain-container">
+              <div className="ai-brain-waves">
+                <div className="ai-brain-wave"></div>
+                <div className="ai-brain-wave"></div>
+                <div className="ai-brain-wave"></div>
+              </div>
+              <div className="ai-brain-core"></div>
+              <div className="ai-brain-connections">
+                <div className="ai-brain-connection"></div>
+                <div className="ai-brain-connection"></div>
+                <div className="ai-brain-connection"></div>
+                <div className="ai-brain-connection"></div>
+                <div className="ai-brain-connection"></div>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Technologies Section */}
-      <section className="development-technologies">
-        <h2>Технологии</h2>
-        <div className="development-technologies-grid">
-          {technologies.map((tech, index) => (
-            <div key={index} className="development-technology-card" style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="development-technology-icon">{tech.icon}</div>
-              <h3 className="development-technology-title">{tech.title}</h3>
-              <p className="development-technology-description">{tech.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="development-faq">
-        <h2>Частые вопросы</h2>
-        {faq.map((item, index) => (
-          <div key={index} className="development-faq-item" style={{ animationDelay: `${index * 0.2}s` }}>
-            <h3 className="development-faq-question">{item.question}</h3>
-            <p className="development-faq-answer">{item.answer}</p>
           </div>
-        ))}
+        </div>
+      </section>
+
+      <div className="ai-divider">
+        <div className="ai-divider-line"></div>
+        <div className="ai-divider-icon">
+          <FaCode />
+        </div>
+        <div className="ai-divider-line"></div>
+      </div>
+
+      <section className="ai-tabs">
+        <div className="ai-tab-buttons">
+          <button
+            className={`ai-tab-button ${activeTab === 'features' ? 'active' : ''}`}
+            onClick={() => setActiveTab('features')}
+          >
+            Возможности
+          </button>
+          <button
+            className={`ai-tab-button ${activeTab === 'process' ? 'active' : ''}`}
+            onClick={() => setActiveTab('process')}
+          >
+            Процесс
+          </button>
+          <button
+            className={`ai-tab-button ${activeTab === 'technologies' ? 'active' : ''}`}
+            onClick={() => setActiveTab('technologies')}
+          >
+            Технологии
+          </button>
+          <button
+            className={`ai-tab-button ${activeTab === 'faq' ? 'active' : ''}`}
+            onClick={() => setActiveTab('faq')}
+          >
+            FAQ
+          </button>
+        </div>
+
+        <div className="ai-tab-content">
+          {activeTab === 'features' && (
+            <>
+              <h2>Возможности Искусственного Интеллекта</h2>
+              <div className="ai-features-grid">
+                {features.map((feature, index) => (
+                  <div key={index} className="ai-feature-card">
+                    <div className="ai-feature-icon">{feature.icon}</div>
+                    <h3>{feature.title}</h3>
+                    <p>{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {activeTab === 'process' && (
+            <>
+              <h2>Процесс Разработки</h2>
+              <div className="ai-process-timeline">
+                {process.map((step, index) => (
+                  <div key={index} className="ai-process-step">
+                    <div className="ai-process-step-number">{step.number}</div>
+                    <div className="ai-process-step-content">
+                      <h3>{step.title}</h3>
+                      <p>{step.description}</p>
+                    </div>
+                    <div className="ai-process-step-icon">{step.icon}</div>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {activeTab === 'technologies' && (
+            <>
+              <h2>Используемые Технологии</h2>
+              <div className="ai-technologies-grid">
+                {technologies.map((tech, index) => (
+                  <div key={index} className="ai-technology-card">
+                    <div className="ai-technology-icon">{tech.icon}</div>
+                    <h3>{tech.title}</h3>
+                    <p>{tech.description}</p>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {activeTab === 'faq' && (
+            <>
+              <h2>Часто Задаваемые Вопросы</h2>
+              <div className="ai-faq-list">
+                {faqs.map((faq, index) => (
+                  <div key={index} className="ai-faq-item">
+                    <h3>{faq.question}</h3>
+                    <p>{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </section>
+
+      <div className="ai-divider">
+        <div className="ai-divider-line"></div>
+        <div className="ai-divider-icon">
+          <FaRocket />
+        </div>
+        <div className="ai-divider-line"></div>
+      </div>
+
+      <section className="ai-cta">
+        <h2>Готовы внедрить ИИ в ваш бизнес?</h2>
+        <p>Свяжитесь с нами для обсуждения вашего проекта</p>
+        <a href="#contact" className="ai-cta-button">Обсудить проект</a>
       </section>
     </div>
   );

@@ -1,0 +1,279 @@
+.services-page {
+  background-color: #121212;
+  color: #abb2bf;
+  min-height: 100vh;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.services-page.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Section */
+.services-hero {
+  background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
+  padding: 120px 5% 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(97, 175, 239, 0.1) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.services-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.services-hero h1 {
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.services-hero p {
+  font-size: 1.2rem;
+  color: #abb2bf;
+  line-height: 1.6;
+}
+
+/* Main Services Section */
+.services-main {
+  padding: 80px 5%;
+  background-color: #1a1a1a;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background-color: #242424;
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  border: 1px solid #333;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: #61afef;
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: #61afef;
+  margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.service-card p {
+  color: #abb2bf;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-features li {
+  color: #abb2bf;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.service-features li::before {
+  content: '•';
+  color: #61afef;
+  position: absolute;
+  left: 0;
+}
+
+/* Technologies Section */
+.services-technologies {
+  padding: 80px 5%;
+  background-color: #121212;
+}
+
+.services-technologies h2 {
+  font-size: 2.5rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.technologies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.technology-card {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #333;
+}
+
+.technology-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: #61afef;
+}
+
+.technology-icon {
+  font-size: 2.5rem;
+  color: #61afef;
+  margin-bottom: 1.5rem;
+}
+
+.technology-card h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.technology-card p {
+  color: #abb2bf;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.services-cta {
+  padding: 80px 5%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(97, 175, 239, 0.1) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.services-cta h2 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.services-cta p {
+  font-size: 1.2rem;
+  color: #abb2bf;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #61afef;
+  color: #121212;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-button:hover {
+  background-color: #4d9fe0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(97, 175, 239, 0.3);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .services-hero h1 {
+    font-size: 3rem;
+  }
+  
+  .services-technologies h2,
+  .services-cta h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-hero {
+    padding: 100px 5% 60px;
+  }
+  
+  .services-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .services-hero p {
+    font-size: 1rem;
+  }
+  
+  .services-grid,
+  .technologies-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .services-technologies h2,
+  .services-cta h2 {
+    font-size: 1.8rem;
+  }
+  
+  .service-card,
+  .technology-card {
+    padding: 1.5rem;
+  }
+} 
