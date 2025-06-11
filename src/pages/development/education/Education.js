@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaBook, FaGraduationCap, FaUsers,FaCode,  FaChartBar, FaRocket, FaCalendarAlt, FaFileAlt, FaBell, FaEnvelope, FaUserGraduate, FaClipboardList, FaCheckCircle, FaChartLine, FaDatabase, FaMobileAlt, FaCloud, FaShieldAlt, FaCog, FaUserTie, FaFileInvoiceDollar, FaTasks, FaComments } from 'react-icons/fa';
+import { FaBook, FaGraduationCap, FaUsers,FaCode,  FaChartBar, FaRocket, FaCalendarAlt, FaFileAlt, FaBell, FaEnvelope, FaUserGraduate, FaClipboardList, FaCheckCircle, FaChartLine, FaDatabase, FaMobileAlt, FaCloud, FaShieldAlt, FaCog, FaTasks} from 'react-icons/fa';
 import './Education.css';
 
 const Education = () => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaCogs, FaCode, FaRocket, FaCheck, FaTools, FaChartLine, FaCloud, FaShieldAlt, FaSync, FaRobot, FaMicrochip, FaDatabase, FaSearch, FaChartBar, FaCog, FaClock, FaTachometerAlt, FaChartPie, FaUsers, FaFileAlt } from 'react-icons/fa';
+import { FaCogs, FaCode, FaRocket, FaCheck, FaTools, FaChartLine, FaSync, FaRobot, FaDatabase, FaChartBar, FaClock, FaTachometerAlt, FaChartPie, FaUsers, FaFileAlt } from 'react-icons/fa';
 import './Automation.css';
 
 const Automation = () => {

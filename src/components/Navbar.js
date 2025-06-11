@@ -50,10 +50,6 @@ const Navbar = () => {
     { title: 'Мобильная разработка', path: '/services/mobile' }
   ];
 
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
-
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">

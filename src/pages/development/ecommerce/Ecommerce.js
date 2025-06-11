@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaShoppingCart, FaBox, FaChartLine, FaCreditCard, FaTruck, FaUser, FaSearch, FaCog, FaCode, FaCheckCircle, FaRocket, FaDatabase, FaCloud, FaMobileAlt, FaShieldAlt } from 'react-icons/fa';
+import { FaShoppingCart, FaBox, FaChartLine, FaCreditCard, FaTruck, FaUser, FaCog, FaCode, FaCheckCircle, FaRocket, FaDatabase, FaCloud, FaMobileAlt, FaShieldAlt } from 'react-icons/fa';
 import './Ecommerce.css';
 
 const Ecommerce = () => {
